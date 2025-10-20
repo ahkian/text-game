@@ -1,6 +1,15 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
 
-const createCharacter = (name: string, specialty: string, hp:number=100, stamina:number=100, mana:number=100): object => ({
+interface Character {
+    id:string,
+    name:string,
+    specialty:string,
+    hp:number,
+    stamina:number,
+    mana:number,
+}
+
+const createCharacter = (name: string, specialty: string, hp:number=100, stamina:number=100, mana:number=100): Character => ({
     id: nanoid(),
     name,
     specialty,
@@ -9,7 +18,7 @@ const createCharacter = (name: string, specialty: string, hp:number=100, stamina
     mana
 })
 
-const initialState: object[] = [
+const initialState: Character[] = [
     createCharacter("Joe Schmo", "manual labor", undefined, 200, 50),
     createCharacter("Karoline Levite", "herbalist")
 ]
@@ -18,9 +27,18 @@ export const charactersSlice = createSlice({
     name: "characters",
     initialState,
     reducers: {
-        newCharacter: (state, action) => {
-            const task = createCharacter(action.payload.name, action.payload.specialty, action.payload.hp, action.payload.stamina, action.payload.mana)
-            state.push(task)
+        newCharacter: (state, action:PayloadAction<{
+            name: string,
+            specialty: string,
+            hp?: number,
+            stamina?: number,
+            mana?: number
+        }>) => {
+            const character = createCharacter(action.payload.name, action.payload.specialty, action.payload.hp, action.payload.stamina, action.payload.mana)
+            state.push(character)
         }
     }
 })
+
+export const { newCharacter } = charactersSlice.actions
+export default charactersSlice.reducer

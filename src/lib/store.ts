@@ -3,7 +3,9 @@ import { charactersSlice } from "./features/characters/characterSlice";
 
 export const makeStore = () => {
     return configureStore({
-        reducer: {}
+        reducer: {
+            characters: charactersSlice.reducer
+        }
     })
 }
 
