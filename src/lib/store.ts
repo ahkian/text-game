@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { charactersSlice } from "./features/characters/characterSlice";
 
 export const makeStore = () => {
     return configureStore({
