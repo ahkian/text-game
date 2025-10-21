@@ -1,6 +1,7 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "@/lib/store";
 
-interface Character {
+export interface Character {
     id:string,
     name:string,
     specialty:string,
@@ -36,6 +37,19 @@ export const charactersSlice = createSlice({
         }>) => {
             const character = createCharacter(action.payload.name, action.payload.specialty, action.payload.hp, action.payload.stamina, action.payload.mana)
             state.push(character)
+        },
+        editCharacter: (
+            state,
+            action: PayloadAction<{
+                id:string;
+                updates: Partial<Omit<Character, "id">>
+            }>
+        ) => {
+            const { id, updates } = action.payload;
+            const selectedCharacter = state.find((c) => c.id === id);
+            if (selectedCharacter){
+                Object.assign(selectedCharacter, updates)
+            }
         }
     }
 })
