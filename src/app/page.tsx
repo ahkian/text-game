@@ -12,20 +12,24 @@ export default function Home() {
   const characters = useSelector((state: RootState) => state.characters)
   const clickAction:React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
-    setShowing(true);
+    setShowing(!showing);
   }
   return (
     <div>
-      <button onClick={clickAction} className={styles.button}>Get all Characters</button>
+      <button onClick={clickAction} className={styles.button}>Show all Character Info</button>
       {showing && (
-        <ul className={styles.characterList}>
-          <h3>Cast of Characters</h3>
+        <table className={styles.table}>
+          <tr className={styles.table}>
+            <td className={styles.table}>ID</td>
+            <td className={styles.table}>Name</td>
+            <td className={styles.table}>Specialty</td>
+          </tr>
           {characters.map((char) => (
-            <li key={char.id}>
-              {char.name} — {char.specialty}
-            </li>
+            <tr className={styles.table} key={char.id}>
+              <td className={styles.table}>{char.id}</td> <td className={styles.table}>{char.name}</td> <td className={styles.table}>{char.specialty}</td>
+            </tr>
           ))}
-        </ul>
+        </table>
       )}
     </div>
   );
