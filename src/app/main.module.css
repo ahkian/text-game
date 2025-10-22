@@ -2,10 +2,3 @@
     color:blue;
     background-color: white;
 }
-#hidden {
-    display: none;
-}
-
-#showing {
-    display: inline;
-}
