@@ -40,7 +40,7 @@ export default function Home() {
         <form>
           <label>Name: </label>
           <input className={styles.input} name="name" type="text"></input><br></br>
-          <label>Specialty</label>
+          <label>Specialty: </label>
           <select className={styles.input}>
             <option value="fighter">Fighter</option>
             <option value="shooter">Shooter</option>
