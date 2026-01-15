@@ -13,3 +13,8 @@
     background-color: white;
     color: black;
 }
+
+#characterForm{
+    display:flex;
+    justify-content: center;
+}

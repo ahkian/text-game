@@ -35,8 +35,8 @@ export default function Home() {
           </tbody>
         </table>
       )}
-      <div>
-        <h2>Create your character</h2>
+      <div id={styles.characterForm}>
+        <h2>Create your character</h2><br></br>
         <form>
           <label>Name: </label>
           <input className={styles.input} name="name" type="text"></input><br></br>
@@ -46,6 +46,7 @@ export default function Home() {
             <option value="shooter">Shooter</option>
             <option value="runner">Runner</option>
           </select>
+          <button type="submit">Create Character</button>
         </form>
       </div>
     </div>
