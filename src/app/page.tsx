@@ -19,16 +19,20 @@ export default function Home() {
       <button onClick={clickAction} className={styles.button}>Show all Character Info</button>
       {showing && (
         <table className={styles.table}>
-          <tr className={styles.table}>
-            <td className={styles.table}>ID</td>
-            <td className={styles.table}>Name</td>
-            <td className={styles.table}>Specialty</td>
-          </tr>
-          {characters.map((char) => (
-            <tr className={styles.table} key={char.id}>
-              <td className={styles.table}>{char.id}</td> <td className={styles.table}>{char.name}</td> <td className={styles.table}>{char.specialty}</td>
+          <thead>
+            <tr className={styles.table}>
+              <td className={styles.table}>ID</td>
+              <td className={styles.table}>Name</td>
+              <td className={styles.table}>Specialty</td>
             </tr>
-          ))}
+          </thead>
+          <tbody>
+            {characters.map((char) => (
+              <tr className={styles.table} key={char.id}>
+                <td className={styles.table}>{char.id}</td> <td className={styles.table}>{char.name}</td> <td className={styles.table}>{char.specialty}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       )}
     </div>
