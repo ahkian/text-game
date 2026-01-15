@@ -35,6 +35,19 @@ export default function Home() {
           </tbody>
         </table>
       )}
+      <div>
+        <h2>Create your character</h2>
+        <form>
+          <label>Name: </label>
+          <input className={styles.input} name="name" type="text"></input><br></br>
+          <label>Specialty</label>
+          <select className={styles.input}>
+            <option value="fighter">Fighter</option>
+            <option value="shooter">Shooter</option>
+            <option value="runner">Runner</option>
+          </select>
+        </form>
+      </div>
     </div>
   );
 }
