@@ -29,24 +29,30 @@ export default function Home() {
           <tbody>
             {characters.map((char) => (
               <tr className={styles.table} key={char.id}>
-                <td className={styles.table}>{char.id}</td> <td className={styles.table}>{char.name}</td> <td className={styles.table}>{char.specialty}</td>
+                <td className={styles.table}>{char.id}</td><td className={styles.table}>{char.name}</td><td className={styles.table}>{char.specialty}</td>
               </tr>
             ))}
           </tbody>
         </table>
       )}
-      <div id={styles.characterForm}>
-        <h2>Create your character</h2><br></br>
+      <div>
+        <h2 className={styles.characterForm}>Create your character</h2><br></br>
         <form>
-          <label>Name: </label>
-          <input className={styles.input} name="name" type="text"></input><br></br>
-          <label>Specialty: </label>
-          <select className={styles.input}>
-            <option value="fighter">Fighter</option>
-            <option value="shooter">Shooter</option>
-            <option value="runner">Runner</option>
-          </select>
-          <button type="submit">Create Character</button>
+          <div className={styles.characterForm}>
+            <label>Name: </label>
+            <input className={styles.input} name="name" type="text"></input>
+          </div><br></br>
+          <div className={styles.characterForm}>
+            <label>Specialty: </label>
+            <select className={styles.input}>
+              <option value="fighter">Fighter</option>
+              <option value="shooter">Shooter</option>
+              <option value="runner">Runner</option>
+            </select>
+        </div><br></br>
+        <div className={styles.characterForm}>
+          <button className={styles.submitButton} type="submit">Create Character</button>
+        </div>  
         </form>
       </div>
     </div>

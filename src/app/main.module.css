@@ -14,7 +14,18 @@
     color: black;
 }
 
-#characterForm{
+.characterForm{
     display:flex;
     justify-content: center;
+}
+
+.submitButton{
+    border:white solid 1px;
+    padding: 0.25em;
+    border-radius: 5px; 
+}
+
+.submitButton:hover{
+    border:yellow solid 1px;
+    color: yellow;
 }
