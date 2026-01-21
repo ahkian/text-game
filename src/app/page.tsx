@@ -9,7 +9,15 @@ import type { Character } from "@/lib/features/characters/characterSlice";
 
 export default function Home() {
   const [showing, setShowing] = useState(false)
+  const [name, setName] =useState("")
+  const [specialty, setSpecialty] = useState("")
   const characters = useSelector((state: RootState) => state.characters)
+  const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value)
+  }
+  const handleSpecialty = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSpecialty(e.target.value)
+  }
   const clickAction:React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
     setShowing(!showing);
@@ -40,11 +48,11 @@ export default function Home() {
         <form>
           <div className={styles.characterForm}>
             <label>Name: </label>
-            <input className={styles.input} name="name" type="text"></input>
+            <input onChange={handleName} className={styles.input} name="name" type="text"></input>
           </div><br></br>
           <div className={styles.characterForm}>
             <label>Specialty: </label>
-            <select className={styles.input}>
+            <select onChange={handleSpecialty} className={styles.input}>
               <option value="fighter">Fighter</option>
               <option value="shooter">Shooter</option>
               <option value="runner">Runner</option>
